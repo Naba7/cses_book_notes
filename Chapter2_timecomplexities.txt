@@ -1,0 +1,71 @@
+1. O(1) < O(logn) < O(n^1/2.0) < O(n) < O(nlogn) < O(n^2) < O(n^3) < O(2^n) < O(n!)
+
+2.              input size                                        required time complexity
+                ----------                                        ------------------------
+                  n<=10                                                   O(n!)
+                  n<=20                                                   O(2^n)
+                  n<=500                                                  O(n^3)
+                  n<=5000                                                 O(n^2)
+                  n<=10^6                                                 O(nlogn) or O(n)
+                  n is large                                              O(1) or O(logn)
+            
+3.  Algorithm 1
+
+A straightforward way to solve the problem is to go through all possible subarrays,calculate the sum of values
+in each subarray and maintain the maximum sum.The following code implements this algorithm:
+
+int best = 0;
+for (int a = 0; a < n; a++)
+{for (int b = a; b < n; b++)
+{int sum = 0;for (int k = a; k <= b; k++)
+{sum += array[k];
+}
+best = max(best,sum);
+}
+}
+cout << best << "\n";
+
+The variables a,b fix first and last index of the subarray, and the sum of values is calculated to the
+variable sum. The variable best contains the maximum sum found during the search. The time complexity of
+the algorithm is O(n^3), because it consists of three nested loops that go through the input.
+
+Algorithm 2
+
+It is easy to make Algorithm 1 more efficient by removing one loop from it. This is possible by calculating
+the sum at the same time when the right end of subarray moves. The result is the following code:
+
+int best = 0;
+for (int a = 0; a < n; a++) 
+{int sum = 0;
+for (int b = a; b < n; b++)
+{sum += array[b];
+best = max(best,sum);
+}
+}
+cout << best << "\n";
+After this change, the time complexity is O(n^2).
+
+Algorithm 3
+
+Surprisingly, it is possible to solve the problem in O(n) time, which means thatjust one loop is enough.
+The idea is to calculate, for each array position, the maximum sum of a subarray that ends at that position.
+After this, the answer for the problem is the maximum of those sums.Consider the subproblem of finding the
+maximum-sum subarray that ends at position k. There are two possibilities:
+1.  The subarray only contains the element at position k.
+2.The subarray consists of a subarray that ends at position k−1, followed by
+element at position k.
+In the latter case, since we want to find a subarray with maximum sum, subarray 
+that ends at position k−1 should also have the maximum sum. Thus,we can solve the problem efficiently by
+calculating the maximum subarray sum for each ending position from left to right.The following code
+implements the algorithm:
+
+int best = 0, sum = 0;
+for (int k = 0; k < n; k++)
+{sum = max(array[k],sum+array[k]);
+best = max(best,sum);
+}
+cout << best << "\n";
+
+The algorithm only contains one loop that goes through the input, so the time complexity is O(n). This is
+also the best possible time complexity, because any algorithm for the problem has to examine all array
+elements at least once.           
