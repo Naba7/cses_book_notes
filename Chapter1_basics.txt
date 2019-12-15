@@ -43,33 +43,4 @@ if (abs(a-b) < 1e-9) {
     #define REP(i, a, b) for(int i = a; i <= b; i++)
 macros shortens code, loops
 
-12. Shortcomings of using macros is they are copied as strings and unfolded as specific datatypes. 
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+12. Shortcomings of using macros is they are copied as strings and unfolded as specific datatypes.
