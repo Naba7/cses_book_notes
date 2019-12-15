@@ -1,0 +1,75 @@
+1. g++ -std=c++14 -02 -Wall test.cpp -o test : indicates producing a binary file test from the source code
+test.cpp. The compiler follows the C++14 standard(-std=c++14), optimizes the code(-02), shows warnings about
+possible warnings(-Wall).
+
+2. Input and output is sometimes bottleneck in the program. The following lines at the beginning of the code
+make i/o more efficient.
+ios::sync_with_stdio(0);
+cin.tie(0);
+
+3. "\n" works faster than endl, because endl always causes a flush operation.
+
+4. C functions scanf and printf are an alternative to the C++ standard streams. They are usually a bit faster.
+
+5. The program should read a whole line from the input, possibly containing spaces. You can accomplish this 
+by :   string s;
+       getline(cin, s);
+       
+6. If the amount of data is unknown, the following loop is useful:
+   while(cin >> x) {
+      // code
+      }
+   It reads elements from the input one after another, until there is no more data available in the input.
+   
+7. Files are used for input and output. It is better to write the code as usual using standard streams, but
+add the following to beginning :
+ freopen("input.txt", "r", stdin);
+ freopen("output.txt", "w", stdout);
+ 
+8. Although the 64-bit long long is enough in most competitions, g++ compiler also provides a 128-bit type 
+"__int128_t" with a value range of -2^127 ...2^127-1.
+
+9. While comparing floats with accuracy we can use the following template:
+if (abs(a-b) < 1e-9) {
+     // a and b are equal
+     }
+     
+10. typedef long long ll;  typedef vector<int> vi;  typedef pair<int,int> pi; shortens the datatypes only.
+
+11. #define F first  
+    #define S second
+    #define PB push_back
+    #define MP make_pair
+    #define REP(i, a, b) for(int i = a; i <= b; i++)
+macros shortens code, loops
+
+12. Shortcomings of using macros is they are copied as strings and unfolded as specific datatypes. 
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
