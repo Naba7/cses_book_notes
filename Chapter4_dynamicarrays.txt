@@ -56,9 +56,7 @@ ii) // size 10, initial value 0
 iii) // size 10, initial value 5
      vector<int> v(10, 5);
      
-7. The internal implementation of a vector uses an ordinary array. If the size of the vector increases and the
-array becomes too small, a new array is allocated and all the elements are moved to the new array. However, this
-does not happen often and the average time complexity of push_back is O(1).
+7. The internal implementation of a vector uses an ordinary array. If the size of the vector increases and the array becomes too small, a new array is allocated and all the elements are moved to the new array. However, this does not happen often and the average time complexity of push_back is O(1).
 
 8. The string structure is also a dynamic array that can be used almost like a vector.
 a) Strings can be combined using + symbol.
@@ -67,8 +65,7 @@ b) The function substr(k, x) returns the substring that begins at position k and
 
 c) The function find(t) finds the position of the first occurrence of a substring t.
 
-9. A set is a data structure that maintains a collection of elements. The basic operations of sets are element
-insertion, search and removal.
+9. A set is a data structure that maintains a collection of elements. The basic operations of sets are element insertion, search and removal.
 a) The set structure is based on a balanced binary tree and its operations work in O(logn) time.
 
 b) The unordered_set structure uses hashing, and its operations work in O(1) time on average.
@@ -97,8 +94,7 @@ cout<<x<<"\n";
 
 14. The function insert never adds an element to the set if it is already there.
 
-15. The structures multiset and unordered_multiset that works like set and unordered_set but they can contain 
-multiple instances of an element. For eg, all three instances of the number 5 are added to a multiset:
+15. The structures multiset and unordered_multiset that works like set and unordered_set but they can contain multiple instances of an element. For eg, all three instances of the number 5 are added to a multiset:
 
 multiset<int> s;
 s.insert(5);
@@ -114,8 +110,7 @@ cout<<s.count(5)<<"\n"; // 0
 17. s.erase(s.find(5));
 cout<<s.count(5); // 2
 
-18. A map is a generalized array that consists of key-value pairs. The keys in a map can be of any data type and 
-are not consecutive values.
+18. A map is a generalized array that consists of key-value pairs. The keys in a map can be of any data type and are not consecutive values.
 a) The structure map is based on a balanced binary tree and accessing elements takes O(logn) time.
 b) The structure unordered_map uses hashing and accessing elements takes O(1) time on average.
 
@@ -124,8 +119,7 @@ b) The structure unordered_map uses hashing and accessing elements takes O(1) ti
     m["monkey"] = 4;
     m["banana"] = 3;
 
-20. If the value of a key is requested but the map doesn't contain it, the key is automatically added to the map
-with a default value 0.
+20. If the value of a key is requested but the map doesn't contain it, the key is automatically added to the map with a default value 0.
 
 21. count() checks if a key exits in a map.
     if(m.count("aybabtu"))  {
@@ -137,9 +131,7 @@ with a default value 0.
        cout<<x.first<<" " <<x.second<<"\n";
     }
     
-23. The often used iterators begin and end define a range that contains all elements in a data structure. The
-iterator begin points to the first element in the data structure, and the iterator end points to the position 
-after the last element. The range defined by iterators is half-open.
+23. The often used iterators begin and end define a range that contains all elements in a data structure. The iterator begin points to the first element in the data structure, and the iterator end points to the position after the last element. The range defined by iterators is half-open.
 
 24. Few functions with ranges are 
 a) sort(v.begin(), v.end())
@@ -160,19 +152,15 @@ f) random_shuffle(a, a+n)
 27. lower_bound(x) returns an iterator to the smallest element in the set whose value is at least x.
     upper_bound(x) returns an iterator to the smallest element in the set whose value is larger than x.
     
-28. In both functions, if such an element doesn't exist, the return value is end and these functions are not 
-supported by the unordered_set structure which doesn't maintain the order of the elements.
+28. In both functions, if such an element doesn't exist, the return value is end and these functions are not supported by the unordered_set structure which doesn't maintain the order of the elements.
 
 29. Bitset is an array whose each value is either 0 or 1. For eg,
     bitset<10> s;
     s[1] = 1;
     
-30. The benefit of using bitsets is that they require less memory than ordinary arrays, because each element in
-bitset only uses one bit of memory. For eg, if n bits are stored in an int array, 32n bits of memory will be used,
-but a corresponding bitset only requires n bits of memory.
+30. The benefit of using bitsets is that they require less memory than ordinary arrays, because each element in bitset only uses one bit of memory. For eg, if n bits are stored in an int array, 32n bits of memory will be used, but a corresponding bitset only requires n bits of memory.
 
-31. The values of bitset can be manipulated using bit operators, which makes it possible to optimize algorithms 
-using bitsets. The code :
+31. The values of bitset can be manipulated using bit operators, which makes it possible to optimize algorithms using bitsets. The code :
 
 bitset<10> s(string("0010011010")); // from right to left
 cout<< s[4] <<"\n"; // 1
@@ -187,9 +175,7 @@ cout<< s[5] <<"\n"; // 0
     cout << (a|b) << "\n"; // 1011111110
     cout << (a^b) << "\n"; // 1001101110
     
-34. Deque is a dynamic array whose size can be changed at both ends of array. Like a vector, a deque provides
-push_back and pop_back, but it also includes the functions push_front and pop_front which are not available in a
-vector.
+34. Deque is a dynamic array whose size can be changed at both ends of array. Like a vector, a deque provides push_back and pop_back, but it also includes the functions push_front and pop_front which are not available in a vector.
 
 deque<int> d;
 d.push_back(5); // [5]
@@ -198,13 +184,11 @@ d.push_front(3); // [3, 5, 2]
 d.pop_back(); // [3, 5]
 d.pop_front(); // [5]
 
-35. The internal implementation of a deque is more complex than that of a vector, and for this reason, deque is
-slower.
+35. The internal implementation of a deque is more complex than that of a vector, and for this reason, deque is slower.
 
 36. In a deque, both adding and removing elements take O(1) time on average at both ends.
 
-37. Stack is a data structure that provides two O(1) time operations: adding an element to top and removing from
-top. Only top element can be accessed.
+37. Stack is a data structure that provides two O(1) time operations: adding an element to top and removing from top. Only top element can be accessed.
 
 stack<int> s;
 s.push(3);
@@ -214,8 +198,7 @@ cout << s.top(); // 5
 s.pop();
 cout << s.top(); // 2
 
-38. Queue provides two O(1) time operations: adding an element to the end of the queue, and removing the first
-element in the queue. Only first and last element of a queue can be accessed.
+38. Queue provides two O(1) time operations: adding an element to the end of the queue, and removing the first element in the queue. Only first and last element of a queue can be accessed.
 
 queue<int> q;
 q.push(3);
@@ -225,7 +208,85 @@ cout << q.front(); // 3
 q.pop();
 cout << q.front(); // 2
 
-Priority queue maintains a set of elements. 
+39. Priority queue maintains a set of elements. The supported operations are insertion and, depending on the type of the queue, retrieval and removal of either the minimum or maximum element.
+
+40. Insertion and removal take O(logn) time, and retrieval takes O(1) time.
+
+41. While an ordered set efficiently supports all the operations of a priority queue, the benefit of using a priority queue is that it has smaller constant factors. A priority queue is usually implemented using a heap structure that is much simpler than a balanced binary tree used in an ordered set.
+
+42. The elements in a C++ priority queue are sorted in decreasing order, and it is possible to find and remove the largest element in the queue.
+
+priority_queue<int> q;
+q.push(3);
+q.push(5);
+q.push(7);
+q.push(2);
+cout << q.top() << "\n"; // 7
+q.pop();
+cout << q.top() << "\n"; // 5
+q.pop();
+q.push(6);
+cout << q.top() << "\n"; // 6
+q.pop();
+
+43. If we want to create a priority queue that supports finding and removing the smallest element.
+
+priority_queue<int,vector<int>,greater<int>> q;
+
+44. The g++ compiler also supports some data structures that are not part of the C++ standard library. Such structures are called policy-based data structures.
+
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+
+45. After this,we can define a data structure indexed_set that is like set but can be indexed like array.
+
+typedef tree<int,null_type,less<int>,rb_tree_tag,tree_order_statistics_node_update> indexed_set;
+indexed_set s;
+s.insert(2);
+s.insert(3);
+s.insert(7);
+s.insert(9);
+
+46. The speciality of this set is that we have access to the indices that the elements would have in a sorted array. The function find_by_order returns an iterator to the element at a given position.
+
+auto x = s.find_by_order(2);
+cout << *x << "\n"; // 7
+
+47. The function order_of_key returns the position of a given element.
+
+cout << s.order_of_key(7) << "\n"; // 2
+
+48. If the element does not appear in the set, we get the position that the element would have in the set.
+
+cout << s.order_of_key(6) << "\n"; // 2
+cout << s.order_of_key(8) << "\n"; // 3
+
+49. find_by_order and order_of_key work in logarithmic time.
+
+50. Let us consider a problem where we are given two lists A and B that both contain n elements. Our task is to calculate the number of elements that belong to both of the lists. For example, for the lists
+A = [5, 2, 8, 9, 4] and B = [3, 2, 9, 5], the answer is 3 because the numbers 2, 5 and 9 belong to both of the lists.
+
+A straightforward solution to the problem is to go through all pairs of elements in O(n^2) time, but next we will focus on more efficient algorithms.
+
+Algorithm 1
+-----------
+
+We construct a set of the elements that appear in A , and after this, we iterate through the elements of B and check for each elements if it also belongs to A. This is efficient because the elements of A are in a set. Using the set structure, the time complexity of the algorithm is O(nlogn).
+
+Algorithm 2
+-----------
+
+It is not necessary to maintain an ordered set, so instead of the set structure we can also use the unordered_set structure. This is an easy way to make the algorithm more efficient, because we only have to change the underlying data structure. The time complexity of the new algorithm is O(n).
+
+Algorithm 3
+-----------
+
+Instead of data structures, we can use sorting. First, we sort both lists A and B . After this, we iterate through both the lists at the same time and find the common elements. The time complexity of sorting is O ( n log n ), and the rest of the algorithm works in O(n) time, so the total time complexity is O(nlogn).
+
+
+
+
+
 
 
 
